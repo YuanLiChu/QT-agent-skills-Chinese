@@ -1,0 +1,1 @@
+见根目录 `LICENSE.zh-CN.txt`。英文原文见原仓库对应 `LICENSE.txt`。
