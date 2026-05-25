@@ -1,23 +1,62 @@
-# Qt Agent Skills 中文翻译
+# Qt AI Skills 中文版
 
-## 翻译范围
+这是 Qt 官方 [TheQtCompanyRnD/agent-skills](https://github.com/TheQtCompanyRnD/agent-skills) 的中文 skill 仓库。仓库保留官方的 `skills/<skill-name>/SKILL.md` 目录结构，便于 Codex、Claude Code、GitHub Copilot、Gemini CLI 等 AI IDE 或 Agent 工具直接安装和加载。
 
-本目录对应 `agent-skills-main/skills` 中的 Qt 官方 agent skills，按 skill 维度翻译核心 `SKILL.md` 内容：
+## 处理原则
 
-- `qt-qml/SKILL.zh-CN.md`：QML 编码规则
-- `qt-qml-review/SKILL.zh-CN.md`：Qt6 QML 代码审查流程
-- `qt-qml-profiler/SKILL.zh-CN.md`：QML 性能分析流程
-- `qt-qml-docs/SKILL.zh-CN.md`：QML 文档生成规则
-- `qt-cpp-docs/SKILL.zh-CN.md`：Qt C++ 文档生成规则
-- `qt-cpp-review/SKILL.zh-CN.md`：Qt C++ 代码审查流程
-- `qt-ui-design/SKILL.zh-CN.md`：Qt UI/UX 设计流程
+- `SKILL.md`、`README.md`、`platforms/*.md`、`references/*.md` 等文本说明已翻译为中文。
+- `references/**/lint-scripts/*.py`、`references/scripts/*.py` 等可执行脚本保持官方原样，不做翻译或改写。
+- `LICENSE` 和各 skill 下的 `LICENSE.txt` 保留官方英文原文；如目录内存在 `LICENSE.zh-CN.txt`，仅作为中文参考说明。
 
-## 保留原则
+## Skills
 
-- 保留原 skill 的名称、适用场景、核心流程、检查项和输出要求。
-- 代码示例、命令、API 名称、规则编号保持英文，避免误导实现。
-- `LICENSE.txt`、Python lint 脚本、平台适配脚本等不翻译，以免破坏法律文本或可执行文件。
+| Skill | 类型 | 用途 |
+| --- | --- | --- |
+| `qt-cpp-review` | Review | Qt C++ 代码审查，结合确定性 lint 与多维度深度分析。 |
+| `qt-qml-review` | Review | QML 代码审查，覆盖绑定、布局、Loader、delegate、状态和性能。 |
+| `qt-qml` | Conceptual | 编写、审查、修复和重构 QML 时使用的最佳实践。 |
+| `qt-qml-docs` | Process | 从 `.qml` 源码生成组件和应用的 Markdown 参考文档。 |
+| `qt-cpp-docs` | Process | 从 Qt/C++ 源码生成类、模块、工具、头文件和入口点文档。 |
+| `qt-qml-profiler` | Tool | 分析 QML Profiler `.qtd` trace，定位 Qt Quick 2D 应用性能热点。 |
+| `qt-ui-design` | Conceptual | 面向 Qt Quick / Qt Widgets 的 UI 设计与可用性指导。 |
 
-## 文件对应关系
+## 安装
 
-每个 `SKILL.zh-CN.md` 对应原目录中的 `SKILL.md`。代码示例、命令、API 名称和规则编号保持原文形式。
+### Codex
+
+可以按需复制单个 skill 到本机 Codex skills 目录：
+
+```powershell
+git clone https://github.com/YuanLiChu/QT-agent-skills-Chinese.git
+Copy-Item -Recurse .\QT-agent-skills-Chinese\skills\qt-qml "$env:USERPROFILE\.codex\skills\qt-qml"
+Copy-Item -Recurse .\QT-agent-skills-Chinese\skills\qt-qml-review "$env:USERPROFILE\.codex\skills\qt-qml-review"
+```
+
+重启 Codex 后即可在支持的任务中自动触发。
+
+### 其他工具
+
+其他支持 `SKILL.md` 目录格式的 Agent 工具，可以直接引用或复制 `skills/<skill-name>` 目录。每个 skill 的入口都是该目录下的 `SKILL.md`。
+
+## 仓库结构
+
+```text
+skills/
+  qt-qml/
+    SKILL.md
+    README.md
+    platforms/
+  qt-qml-review/
+    SKILL.md
+    references/
+      lint-scripts/
+  qt-cpp-review/
+    SKILL.md
+    references/
+      lint-scripts/
+  ...
+```
+
+## 来源与许可
+
+原始内容来自 Qt 官方 `TheQtCompanyRnD/agent-skills`。本仓库仅做中文翻译和可安装结构整理，脚本与许可证文件保留官方内容。许可证见 [LICENSE](LICENSE)。
